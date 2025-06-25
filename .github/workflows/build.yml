@@ -27,12 +27,8 @@ jobs:
     - name: Make gradlew executable and patch package name
       run: |
         chmod +x ./gradlew
-
-        # Ganti deskripsi module dengan package yang dimasukkan
         sed -i "s/moduleDescription = \"/moduleDescription = \"(${PACKAGE_NAME}) /g" module.gradle
-
-        # Ganti placeholder package di header file C++
-        sed -i "s/com.mobile.legends.usa/${PACKAGE_NAME}/g" module/src/main/cpp/game.h
+        sed -i "s/com.game.packagename/${PACKAGE_NAME}/g" module/src/main/cpp/game.h
 
     - name: Build Module
       run: ./gradlew :module:assembleRelease
