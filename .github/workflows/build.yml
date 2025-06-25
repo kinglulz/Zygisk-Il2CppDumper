@@ -38,7 +38,7 @@ jobs:
       run: ./gradlew :module:assembleRelease
 
     - name: Upload Zygisk Module Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ZygiskIl2CppDumper
         path: out/magisk_module_release/
